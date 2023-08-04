@@ -13,4 +13,4 @@ var puestoDeTrabajo;
 console.log(puestoDeTrabajo);
 
 tieneTrabajo = null;
-console.log(tieneTrabajo);
+console.log("tieneTrabajo");
