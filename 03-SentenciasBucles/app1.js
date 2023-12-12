@@ -64,7 +64,7 @@ switch(mes){
         console.log("Abril");
         break;
     default:
-        console.log("Mes no existe");
+        console.log("Mes no considerado");
 };
 
 /*******
@@ -77,6 +77,10 @@ switch(mes){
 //Sentencia For
 
 for (var i = 0;i <= 10;i++){
+    console.log(i);
+};
+
+for (var i = 0;i <= 10;i+=2){
     console.log(i);
 };
 
