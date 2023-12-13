@@ -41,21 +41,3 @@ function edad(convertir){
 
 var year = edad(1991);
 console.log("La persona tiene: " + year + " años");
-
-/**************
- * Ejercicio de codificación 3
- * 
- * Calcular cuantos años le falta a una persona para que se jubile.
- * Una persona se jubila a los 65 años de edad.
- * Enviar como datos a la función su año de nacimiento y su nombre.
- * 
- * Solución:
- */
-
-function calculoJubilacion(jubilacion, nombre){
-    var edadPersona = edad(jubilacion);
-    var jubilar = 65 - edadPersona;
-    console.log("A " + nombre + " le faltan " + jubilar + " años para jubilarse");
-};
-
-calculoJubilacion(1990, "Pablo");
