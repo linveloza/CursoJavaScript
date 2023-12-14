@@ -114,7 +114,7 @@ var persona3 = {
     yearNacimiento: 1991,
 
     //Métodos
-    calcularEdad: function(yearNacimiento){
+    calcularEdad: function(){
         this.edad = 2023 - this.yearNacimiento;
     }
 };
