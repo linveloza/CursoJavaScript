@@ -185,5 +185,65 @@ contenido que tiene el texto*/
 
 /****************
  * Actualizar el diseño
+ * Agregar un elemento a la lista
  */
 
+var form = document.getElementById('formAgregar');
+var lista = document.getElementById('items');
+var filtro = document.getElementById('filtro');
+
+//Evento submit del formulario
+form.addEventListener('submit', agregarItem);
+//Evento click de la lista
+lista.addEventListener('click', eliminarItem);
+//Evento del teclado en el campo del filtro
+filtro.addEventListener('keyup', filtrarItems);
+
+//Función para agregar un Item a la lista
+function agregarItem(e) {
+    e.preventDefault();
+    var newItem = document.getElementById('item').value;
+
+    var li = document.createElement('li');
+    li.className = 'list-group-item';
+    li.appendChild(document.createTextNode(newItem));
+
+    var boton = document.createElement('button');
+    boton.className = 'btn btn-danger btn-sm float-right eliminar';
+    boton.appendChild(document.createTextNode('X'));
+
+    li.appendChild(boton);
+
+    lista.appendChild(li);
+
+    console.log(li);
+}
+
+//Función para eliminar un Item a la lista
+function eliminarItem(e) {
+    if (e.target.classList.contains('eliminar')) {
+        if (confirm('¿Seguro que desea eliminar el elemento?')) {
+            var li = e.target.parentElement;
+            lista.removeChild(li);
+            console.log(li);
+        }
+    }
+}
+
+//Función para filtrar elementos de la lista
+function filtrarItems(e) {
+    //toLowerCase = a convertir todas las letras en minusculas
+    var texto = e.target.value.toLowerCase();
+    //getElementsByTagName = consigue elementos de etiqueta nombre
+    var items = lista.getElementsByTagName('li');
+    Array.from(items).forEach(function (item) {
+        //fistChild = traer el primer hijo de item, recordando que la etiqueta li tiene dos hijos item y botón
+        var itemNombre = item.firstChild.textContent;
+        //indexOf = indice de texto
+        if (itemNombre.toLocaleLowerCase().indexOf(texto) != -1) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
